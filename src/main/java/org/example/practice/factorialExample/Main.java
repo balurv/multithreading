@@ -16,7 +16,12 @@ public class Main {
             thread.start();
         }
         for(FactorailThread thread : threads){
-            thread.join(2000);
+            try {
+                thread.join(2000);
+            }
+            catch (InterruptedException e){
+                e.printStackTrace();
+            }
         }
 
         for(int i = 0; i < list.size(); i++){
